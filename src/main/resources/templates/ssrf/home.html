@@ -4,6 +4,12 @@
     <title>URL Checker</title>
 </head>
 <body>
-
+<h1>Check URL</h1>
+<form action="/check" method="post">
+    <label th:value="URL">
+        <input type="text" name="url" value="http://localhost:8080/customers"/>
+    </label>
+    <input type="submit" value="Check"/>
+</form>
 </body>
 </html>
