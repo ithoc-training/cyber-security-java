@@ -1,14 +1,14 @@
 # Exercise: Reflected Cross-Site Scripting (RXSS)
 
 ## Ziel
-Schreibe eine kleine Beispielanwendung, in der die RXSS-Schwachstelle “versehentlich” Implementiert ist.  
+Schreibe eine kleine Beispielanwendung, in der die RXSS-Schwachstelle „versehentlich“ implementiert ist.  
 
 ## Aufgaben
-Lege dir ein Spring MVC (mit Spring Boot und Thymeleaf) an.
-Schreibe einen Controller mit einem Home-Template (Mapping: “/”) und einem Search-Template (“/search).
-Die Home-Seite enthält ein Formular mit einem Eingabefeld und einem Button. Die Aktion verweist auf die 
+1. Lege dir ein Spring MVC (mit Spring Boot und Thymeleaf) an.
+2. Schreibe einen Controller mit einem Home-Template (Mapping: “/”) und einem Search-Template (“/search).
+3. Die Home-Seite enthält ein Formular mit einem Eingabefeld und einem Button. Die Aktion verweist auf die 
 Search-Ressource als POST-Methode.
-Die Search-Methode reicht die Eingabe direkt weiter ans Search-Template. Dort wird sie mittels ```th:utext``` 
+4. Die Search-Methode reicht die Eingabe direkt weiter ans Search-Template. Dort wird sie mittels ```th:utext``` 
 (unaufgelöst) ausgegeben wird.  
 
 ## Hinweis
