@@ -5,25 +5,33 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Objects;
 
 @Controller
 public class CsrfClientController {
 
     @GetMapping("/csrf")
-    public String index() {
+    public String index(Model model) {
 
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<UserProfile> emailResponse = restTemplate.getForEntity(
+                "http://localhost:8080/email?userId=any-uuid-1",
+                UserProfile.class
+        );
+        model.addAttribute("userId", Objects.requireNonNull(emailResponse.getBody()).getUserId());
+        model.addAttribute("email", emailResponse.getBody().getEmail());
         return "csrf/index";
     }
 
     @PostMapping("/change-email")
-    public String changeEmail(@RequestBody String email, Model model) {
+    public String changeEmail(@RequestParam String userId, @RequestParam String email, Model model) {
 
         RestTemplate restTemplate = new RestTemplate();
-
         ResponseEntity<Void> emailResponse = restTemplate.getForEntity(
-                "http://localhost:8080/email/" + email,
+                "http://localhost:8080/email/" + userId + "?newEmail=" + email,
                 Void.class
         );
 
@@ -32,7 +40,7 @@ public class CsrfClientController {
         } else {
             model.addAttribute("message", "Nicht autorisiert");
         }
-        return "csrf/result";
+        return "redirect:/csrf";
     }
 
 }

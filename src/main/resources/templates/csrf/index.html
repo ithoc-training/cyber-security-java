@@ -5,7 +5,10 @@
 </head>
 <body>
 <form action="/change-email" method="post">
+    <p th:text="${userId}"></p>
+    <p th:text="${email}"></p>
     <label>
+        <input type="text" name="userId" />
         <input type="email" name="email" value="" placeholder="Enter new email"/>
     </label>
     <input type="submit" value="Change Email"/>
