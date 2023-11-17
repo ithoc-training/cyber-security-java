@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class RxssController {
 
 
-    @GetMapping("/")
+    @GetMapping("/rxss")
     public String home() {
 
-        return "home";
+        return "rxss/home";
     }
 
 
@@ -22,7 +22,7 @@ public class RxssController {
 
         model.addAttribute("query", query);
 
-        return "search";
+        return "rxss/search";
     }
 
 }
