@@ -5,11 +5,9 @@ Schreibe eine kleine Beispielanwendung, in der die **SSRF**-Schwachstelle „ver
 
 ## Aufgaben
 1. Lege dir ein Spring MVC (mit Spring Boot und Thymeleaf) an.
-2. Implementiere einen internen Service, der eine URL entgegennimmt und Kundendaten zurückgibt. 
-Alternativ verwende das bereitgestellte Beispielprojekt 
-```cyber-security-java /src/main/java/**/cybersecurity/ssrf/*```.
-3. Schreibe eine Spring MVC die aus einem Template eine URL entgegennimmt und diese an den internen 
-Service weiterleitet.
+2. Analysiere den internen Service ```InternalServer```, der eine URL entgegennimmt und Kundendaten zurückgibt. 
+3. Behebe die Schwachstelle mithilfe von ```URLValidator``` aus der Apache Commons Validator-Bibliothek oder einem 
+anderen Verfahren deiner Wahl.
 
 ## Hinweis
 Du kennst die interne URL auf die Customer-API. Gib diese nun in das Eingabefeld ein und führe den 
