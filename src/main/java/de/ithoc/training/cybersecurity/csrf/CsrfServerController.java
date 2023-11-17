@@ -14,6 +14,7 @@ import java.util.Map;
 public class CsrfServerController {
 
     private final Map<String, UserProfile> userProfiles = new HashMap<>();
+
     public CsrfServerController() {
         final UserProfile anyUser1 = new UserProfile();
         anyUser1.setUserId("any-uuid-1");
